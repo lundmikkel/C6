@@ -13,7 +13,7 @@ using SCG = System.Collections.Generic;
 
 namespace C6
 {
-    public class ArrayList<T> : ICollectionValue<T>
+    public class ArrayList<T> : ICollectionValue<T>, IDirectedEnumerable<T>
     {
         #region Fields
 
@@ -93,6 +93,11 @@ namespace C6
 
         public Speed CountSpeed => Speed.Constant;
 
+        public EnumerationDirection Direction
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         public bool IsEmpty => Count == 0;
 
         public EventTypes ListenableEvents
@@ -103,6 +108,11 @@ namespace C6
         #endregion
 
         #region Public Methods
+
+        public IDirectedEnumerable<T> Backwards()
+        {
+            throw new NotImplementedException();
+        }
 
         public T Choose() => _array[Count - 1];
 
